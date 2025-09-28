@@ -397,7 +397,8 @@ body {
 
 /* Kung Fu Themed Start Screen with Dojo Background */
 #start-screen {
-    background-image: url('images/dojo_background.jpg');
+    /* background-image: url('images/dojo_background.png'); */
+    background-image: url('images/dojo.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -491,7 +492,7 @@ h1 {
 /* Kung Fu Themed Title */
 #start-screen h1 {
     font-family: 'Bangers', cursive;
-    font-size: 8rem;
+    font-size: 5rem;
     font-weight: 400;
     color: #ffd700; /* Changed to gold for better visibility */
     text-shadow: 
