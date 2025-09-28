@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Scroll of Kaizen - Interactive Learning Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Rock+Salt:wght@400&family=Bangers&family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Bar Container -->
+    <div id="progress-bar-container" class="hidden">
+        <div id="progress-track">
+            <div id="progress-fill"></div>
+            <img id="po-progress-icon" src="images/po_face.png" alt="Po Progress Icon">
+        </div>
+        <!-- Information Button -->
+        <button id="info-btn">?</button>
+    </div>
+
+    <div id="app-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div id="start-screen-content">
+                <h1>THE SCROLL OF KAIZEN</h1>
+                <p>Your journey to continuous improvement begins. Make wise choices.</p>
+                <button id="start-btn">BEGIN YOUR JOURNEY</button>
+            </div>
+        </div>
+
+        <!-- Video Screen (Main Game Screen) -->
+        <div id="video-screen" class="screen">
+            <video id="main-video" autoplay muted>
+                <!-- Video source will be set dynamically by JavaScript -->
+            </video>
+            
+            <!-- Decision Container (overlay) -->
+            <div id="decision-container" class="hidden">
+                <div class="decision-content">
+                    <p id="scenario-text"></p>
+                    <div id="choices-box">
+                        <!-- Choice buttons will be created dynamically by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Screen -->
+        <div id="end-screen" class="screen">
+            <div class="screen-content">
+                <h1>The Lesson is Learned</h1>
+                <p id="end-message">You have completed your journey through the Scroll of Kaizen!</p>
+                <button id="restart-btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shifu Feedback Modal -->
+    <div id="shifu-feedback-modal" class="modal hidden">
+        <!-- Shifu Character - slides in from the side -->
+        <div id="shifu-character" class="shifu-character">
+            <img id="shifu-image" src="images/shifu.png" alt="Master Shifu">
+        </div>
+        
+        <!-- Speech Bubble - pops in after Shifu appears -->
+        <div id="speech-bubble" class="speech-bubble">
+            <h2>Master Shifu says...</h2>
+            <p id="feedback-text"></p>
+            <button id="try-again-btn">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Scroll Modal - Information about Kaizen -->
+    <div id="scroll-modal" class="modal hidden">
+        <div id="scroll-content">
+            <button id="close-scroll-btn">&times;</button>
+            <h1>The Kaizen Way</h1>
+
+            <h2>Summary of the Model</h2>
+            <p>Kaizen is a Japanese philosophy of continuous improvement that focuses on making small, incremental changes to processes, systems, and behaviors. The term "Kaizen" combines two Japanese words: "kai" (change) and "zen" (good), meaning "change for the better." This approach emphasizes that small improvements, when made consistently over time, can lead to significant positive changes in both personal and organizational performance.</p>
+
+            <h2>Target Audience</h2>
+            <p>This model is best suited for organizations and individuals who value long-term, sustainable improvement over quick fixes. It's particularly effective for manufacturing companies, service industries, healthcare organizations, and any group that wants to foster a culture of continuous learning and improvement. Kaizen works well for teams that are open to collaborative problem-solving and are willing to invest time in building a culture of excellence.</p>
+
+            <h2>Strengths of the Model</h2>
+            <p>Empowers employees at all levels to contribute to improvement efforts, creating a sense of ownership and engagement. It's low-cost to implement since it focuses on small changes rather than major overhauls. The model builds a culture of continuous learning and adaptability. It reduces waste and inefficiencies through systematic observation and improvement. Kaizen encourages teamwork and collaboration across departments. The approach is sustainable because it becomes part of the organizational DNA rather than a one-time initiative.</p>
+
+            <h2>Weaknesses of the Model</h2>
+            <p>Requires significant cultural change and buy-in from all levels of the organization. It can be slow for organizations that need rapid, radical innovation or transformation. The model may not be suitable for crisis situations that require immediate, dramatic changes. Success depends heavily on leadership commitment and consistent implementation. Some employees may resist the constant focus on improvement, seeing it as additional work. The incremental approach may miss opportunities for breakthrough innovations that require larger, more disruptive changes.</p>
+
+            <h2>The 5S Method</h2>
+            <p>Within the Kaizen philosophy, the 5S method provides a structured approach to workplace organization and efficiency. The five S's stand for:</p>
+            <ul>
+                <li><strong>Sort (Seiri):</strong> Remove unnecessary items and keep only what is needed</li>
+                <li><strong>Set in Order (Seiton):</strong> Organize items for easy access and efficient workflow</li>
+                <li><strong>Shine (Seiso):</strong> Clean and inspect the workspace regularly</li>
+                <li><strong>Standardize (Seiketsu):</strong> Create consistent procedures and practices</li>
+                <li><strong>Sustain (Shitsuke):</strong> Maintain the improvements through discipline and continuous monitoring</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
