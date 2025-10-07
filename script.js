@@ -1,106 +1,106 @@
 /**
  * The Scroll of Kaizen - Interactive Learning Game
  * A data-driven story game teaching the Kaizen change model
- * with Kung Fu Panda and Naruto themes
+ * with a Kung Fu Panda theme.
  */
 
-// Story Data Structure - Defines the entire narrative flow with feedback system
+// Story Data Structure - Defines the new narrative flow
 const story = {
     start: {
-        video: "videos/01_intro.mp4",
-        scenario: "The Jade Palace kitchen is messy and disorganized. Master Shifu has asked Po to apply the 5S method (Sort, Set in Order, Shine, Standardize, Sustain) to improve the workspace. What is the FIRST step Po should take?",
+        video: "videos/placeholder_01.mp4",
+        scenario: "To begin your training, a warm-up question! Who is Po's wise and patient Kung Fu master?",
         choices: [
-            { 
-                text: "Sharpen all the knives and tools", 
-                feedback: "Sharpening tools is important, but 5S begins with removing what you don't need! The first step is always Sort - eliminate unnecessary items before organizing what remains.", 
-                leadsTo: "start" 
-            },
-            { text: "Remove all broken pots and unused items (Sort)", leadsTo: "chapter2" },
-            { 
-                text: "Create new labels for everything", 
-                feedback: "Labels are helpful, but they come after organization! The 5S method follows a specific order: Sort first, then Set in Order, then Shine, then Standardize. Labels are part of the Standardize step.", 
-                leadsTo: "start" 
-            },
-            { 
-                text: "Start cleaning and organizing immediately", 
-                feedback: "Cleaning is important, but not the first step! In 5S, you must Sort (remove unnecessary items) and Set in Order (organize) before you Shine (clean). This prevents wasted effort on items that shouldn't be there.", 
-                leadsTo: "start" 
-            }
+            { text: "Master Oogway", feedback: "Master Oogway was the founder of Kung Fu, but Master Shifu is Po's direct teacher!", leadsTo: "start" },
+            { text: "Master Shifu", leadsTo: "journeyToJapan" },
+            { text: "Master Tigress", feedback: "Tigress is a powerful warrior and friend, but not Po's master.", leadsTo: "start" }
         ]
     },
-    chapter2: {
-        video: "videos/02_correct_choice.mp4",
-        scenario: "Excellent! By sorting first, Po cleared the clutter and identified what's truly needed. Now that the unnecessary items are removed, what should be the next step in the 5S process?",
+    journeyToJapan: {
+        video: "videos/placeholder_02.mp4",
+        scenario: "The scroll speaks of 'Kaizen,' a powerful philosophy. To learn its secrets, Po must travel to its land of origin. Where did the way of Kaizen originate?",
         choices: [
-            { 
-                text: "Start cleaning everything thoroughly", 
-                feedback: "Cleaning comes later! After Sort, the next step is Set in Order - arranging items in logical, efficient locations. You need to organize before you clean to avoid cleaning things that aren't in their proper place.", 
-                leadsTo: "chapter2" 
-            },
-            { text: "Arrange items in logical, efficient locations (Set in Order)", leadsTo: "chapter3" },
-            { 
-                text: "Create detailed procedures for everything", 
-                feedback: "Procedures are part of Standardize, which comes after Set in Order and Shine. First organize the workspace, then clean it, then create the procedures to maintain it.", 
-                leadsTo: "chapter2" 
-            }
+            { text: "China", feedback: "While Kung Fu originates from China, the philosophy of Kaizen comes from Japan.", leadsTo: "journeyToJapan" },
+            { text: "Korea", feedback: "A land of great traditions, but Kaizen's roots are in Japan.", leadsTo: "journeyToJapan" },
+            { text: "Japan", leadsTo: "trainingBegins" }
         ]
     },
-    chapter3: {
-        video: "videos/03_set_in_order.mp4",
-        scenario: "Perfect! Po has organized the kitchen with everything in its proper place. Now comes the cleaning phase. What should Po focus on during the 'Shine' step?",
+    trainingBegins: {
+        video: "videos/placeholder_03.mp4",
+        scenario: "Po meets the wise master Naruto, who explains that the path to Kaizen does not begin with a mighty clash, but with quiet observation. What is the first step in true Kaizen training?",
         choices: [
-            { 
-                text: "Clean only the visible surfaces", 
-                feedback: "The Shine step is about deep cleaning and inspection, not just surface cleaning! This is when you discover problems, wear, and issues that need attention. A thorough cleaning reveals what needs maintenance.", 
-                leadsTo: "chapter3" 
-            },
-            { text: "Deep clean everything and inspect for problems", leadsTo: "chapter4" },
-            { 
-                text: "Just wipe down the counters quickly", 
-                feedback: "Quick wiping isn't the Kaizen way! The Shine step is about thorough cleaning and inspection to identify problems. This deep cleaning helps you understand what needs attention and prevents future issues.", 
-                leadsTo: "chapter3" 
-            }
+            { text: "Observing the process", leadsTo: "strength1" },
+            { text: "Lifting heavy rocks", feedback: "Strength is important, but Kaizen begins with the mind, not the muscles. One must first see the challenge clearly.", leadsTo: "trainingBegins" },
+            { text: "Sparring with a master", feedback: "Combat reveals flaws, but true improvement starts by observing the everyday process, not the grand battle.", leadsTo: "trainingBegins" }
         ]
     },
-    chapter4: {
-        video: "videos/04_shine.mp4",
-        scenario: "Outstanding! Po discovered several issues during cleaning that could have caused problems later. Now it's time to create standards. What should Po do in the 'Standardize' step?",
+    strength1: {
+        video: "videos/placeholder_04.mp4",
+        scenario: "Naruto teaches Po the first strength of Kaizen: it is for everyone. Who is responsible for suggesting improvements in the Kaizen way?",
         choices: [
-            { text: "Write down the new procedures for everyone to follow", leadsTo: "chapter5" },
-            { 
-                text: "Just tell everyone the new way verbally", 
-                feedback: "Verbal instructions aren't enough for standardization! The Standardize step requires written procedures, visual guides, and clear documentation so everyone can follow the same process consistently.", 
-                leadsTo: "chapter4" 
-            },
-            { 
-                text: "Let everyone figure it out on their own", 
-                feedback: "That's not standardization at all! The Standardize step is about creating clear, consistent procedures that everyone can follow. Without standards, everyone will do things differently, and the improvements won't last.", 
-                leadsTo: "chapter4" 
-            }
+            { text: "Only the Masters", feedback: "No, the masters guide the process, but the wisdom of Kaizen is that even the newest student can see a better way.", leadsTo: "strength1" },
+            { text: "Only the Dragon Warrior", feedback: "The Dragon Warrior leads by example, but every single person's insight is valuable in the path of continuous improvement.", leadsTo: "strength1" },
+            { text: "Everyone, from the noodle maker to the master", leadsTo: "strength2" }
         ]
     },
-    chapter5: {
-        video: "videos/05_standardize.mp4",
-        scenario: "Excellent! Po has created clear standards and procedures. The final step is 'Sustain' - making sure the improvements last. What is the most important aspect of sustaining the 5S improvements?",
+    strength2: {
+        video: "videos/placeholder_05.mp4",
+        scenario: "The second strength is revealed: Small steps lead to big changes. How does Kaizen achieve great results?",
         choices: [
-            { text: "Check the system regularly and make continuous improvements", leadsTo: "end_final" },
-            { 
-                text: "Set it and forget it - the work is done", 
-                feedback: "That's not the Kaizen way! Continuous improvement means the work is never truly done. The Sustain step requires regular checking, monitoring, and making ongoing improvements. Kaizen is about never stopping the pursuit of excellence!", 
-                leadsTo: "chapter5" 
-            },
-            { 
-                text: "Only check when there's a problem", 
-                feedback: "Reactive checking isn't enough! The Sustain step requires proactive, regular monitoring and continuous improvement. Waiting for problems to appear means you're not truly sustaining the improvements - you're just fixing things when they break.", 
-                leadsTo: "chapter5" 
-            }
+            { text: "Through one single, heroic effort", feedback: "Heroic efforts are for legends! Kaizen is for the real world, where consistent, small actions create lasting change.", leadsTo: "strength2" },
+            { text: "By making small, consistent improvements", leadsTo: "strength3" },
+            { text: "By waiting for the perfect moment", feedback: "The perfect moment is now! Kaizen teaches that we should not wait, but take a small step forward today.", leadsTo: "strength2" }
         ]
     },
-    end_final: {
-        video: "videos/99_success.mp4",
-        scenario: "Congratulations! You have mastered the Scroll of Kaizen! You understand that continuous improvement is a journey, not a destination. Like Po and Naruto, true strength comes from never stopping the pursuit of excellence. The 5S method is now part of your ninja toolkit!",
+    strength3: {
+        video: "videos/placeholder_06.mp4",
+        scenario: "The third strength: It is easy to do it right. Kaizen focuses on simple, clear processes. Why is this important?",
         choices: [
-            { text: "Play Again", leadsTo: "start" }
+            { text: "So it's easy for everyone to follow the correct way", leadsTo: "strength4" },
+            { text: "To make the process more mysterious", feedback: "Clarity, not mystery, is the goal! A simple process is a strong process that everyone can master.", leadsTo: "strength3" },
+            { text: "So only the smartest warrior can do it", feedback: "Kaizen is not for the few, but for the many. A simple process ensures everyone can contribute to success.", leadsTo: "strength3" }
+        ]
+    },
+    strength4: {
+        video: "videos/placeholder_07.mp4",
+        scenario: "The final strength: Everyone improves together. As the team gets better, so does the individual. What is the outcome of this shared journey?",
+        choices: [
+            { text: "One warrior becomes the strongest", feedback: "When the team rises, everyone rises with it. The goal is collective strength, not individual glory.", leadsTo: "strength4" },
+            { text: "It creates a culture of teamwork and shared success", leadsTo: "weakness1" },
+            { text: "It causes jealousy between warriors", feedback: "In the Kaizen way, the success of a teammate is your success too. It builds unity, not rivalry.", leadsTo: "strength4" }
+        ]
+    },
+    weakness1: {
+        video: "videos/placeholder_08.mp4",
+        scenario: "But the path is not without its challenges. The first weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
+        choices: [
+            { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
+            { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness1" },
+            { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness1" }
+        ]
+    },
+    weakness2: {
+        video: "videos/placeholder_09.mp4",
+        scenario: "The second weakness: The results can feel slow at first. Why could this be a challenge for the Furious Five?",
+        choices: [
+            { text: "They are used to seeing immediate, powerful results", leadsTo: "pre_outro" },
+            { text: "The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness2" },
+            { text: "It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness2" }
+        ]
+    },
+    pre_outro: {
+        // This is a new text-only node before the final video
+        video: null, // No video for this node
+        scenario: "Po now understands the Scroll of Kaizen. The journey to mastery is not a single leap, but a path of endless small steps. He returns to the Valley of Peace, ready to share this wisdom.",
+        choices: [
+            { text: "See the journey's end", leadsTo: "outro" }
+        ]
+    },
+    outro: {
+        // This is the final node with the credits video
+        video: "videos/placeholder_10.mp4",
+        scenario: "Thank you for playing!",
+        choices: [
+            { text: "Begin the Journey Anew", leadsTo: "start" }
         ]
     }
 };
@@ -139,35 +139,22 @@ const closeScrollBtn = document.getElementById('close-scroll-btn');
 
 // Game State
 let currentStoryNode = null;
-let currentRetryNode = null; // Stores the node to retry from when incorrect choice is made
+let currentRetryNode = null; 
 
-// Progress Tracking - Main story nodes that represent progression
-const mainStoryNodes = ['start', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'end_final'];
+// Progress Tracking - Updated main story nodes for the new flow
+const mainStoryNodes = ['start', 'journeyToJapan', 'trainingBegins', 'strength1', 'strength2', 'strength3', 'strength4', 'weakness1', 'weakness2', 'pre_outro', 'outro'];
 
 /**
  * Update the progress bar based on current story node
  * @param {string} nodeKey - The current story node key
  */
 function updateProgress(nodeKey) {
-    // Find the index of the current node in main story nodes
     const currentIndex = mainStoryNodes.indexOf(nodeKey);
-    
-    // If node is not in main story nodes (like feedback states), don't update progress
-    if (currentIndex === -1) {
-        return;
-    }
-    
-    // Calculate progress percentage
+    if (currentIndex === -1) return;
     const totalNodes = mainStoryNodes.length;
     const progress = totalNodes > 1 ? (currentIndex / (totalNodes - 1)) * 100 : 0;
-    
-    // Update progress bar fill
     progressFill.style.width = `${progress}%`;
-    
-    // Update Po's position
     poProgressIcon.style.left = `${progress}%`;
-    
-    console.log(`Progress updated: ${progress.toFixed(1)}% for node: ${nodeKey}`);
 }
 
 /**
@@ -191,72 +178,55 @@ function hideProgressBar() {
  * @param {string} nodeKey - The key of the story node to load
  */
 function loadNode(nodeKey) {
-    // Get the story data for the current node
+    mainVideo.classList.remove('blurred'); // Add this line at the top
     const nodeData = story[nodeKey];
-    
     if (!nodeData) {
         console.error(`Story node '${nodeKey}' not found!`);
         return;
     }
-    
-    // Update current node
     currentStoryNode = nodeKey;
-    
-    // Update progress bar
     updateProgress(nodeKey);
-    
-    // Update video source and load
-    mainVideo.src = nodeData.video;
-    mainVideo.load();
-    
-    // Hide decision container and modal initially
+
+    // Hide decision container and modals initially
     decisionContainer.classList.add('hidden');
     shifuModal.classList.add('hidden');
     shifuModal.classList.remove('active');
-    
-    // Reset modal animation states
     shifuCharacter.classList.remove('active');
     speechBubble.classList.remove('active');
-    
-    // Remove blur effect
     appContainer.classList.remove('blurred');
-    
-    // Clear previous choices
     choicesBox.innerHTML = '';
-    
-    // Update scenario text
     scenarioText.textContent = nodeData.scenario;
+
+    // Handle nodes with video vs. text-only nodes
+    if (nodeData.video) {
+        mainVideo.style.display = 'block'; // Ensure video player is visible
+        mainVideo.src = nodeData.video;
+        mainVideo.load();
+        mainVideo.play().catch(error => {
+            console.warn('Video autoplay failed:', error);
+        });
+    } else {
+        mainVideo.style.display = 'none'; // Hide video player for text-only nodes
+        showDecisionContainer(); // Immediately show the text and choices
+    }
     
     // Create choice buttons if choices exist
     if (nodeData.choices && nodeData.choices.length > 0) {
-        nodeData.choices.forEach((choice, index) => {
+        nodeData.choices.forEach(choice => {
             const button = document.createElement('button');
             button.textContent = choice.text;
             button.className = 'choice-btn';
-            button.id = `choice-${index}`;
-            
-            // Add click event listener
             button.addEventListener('click', () => {
-                // Check if this choice has feedback (incorrect choice)
                 if (choice.feedback) {
-                    // Show feedback modal
                     showFeedbackModal(choice.feedback, choice.leadsTo);
                 } else {
-                    // Correct choice - proceed normally
                     decisionContainer.classList.add('hidden');
                     loadNode(choice.leadsTo);
                 }
             });
-            
             choicesBox.appendChild(button);
         });
     }
-    
-    // Play the video
-    mainVideo.play().catch(error => {
-        console.warn('Video autoplay failed:', error);
-        // If autoplay fails, show a play button or handle gracefully
-    });
 }
 
 /**
@@ -265,77 +235,35 @@ function loadNode(nodeKey) {
  * @param {string} retryNode - The node to retry from
  */
 function showFeedbackModal(feedback, retryNode) {
-    // Store the retry node
     currentRetryNode = retryNode;
-    
-    // Update feedback text
     feedbackText.textContent = feedback;
-    
-    // Hide decision container first
     decisionContainer.classList.add('hidden');
-    
-    // Apply blur effect to background
     appContainer.classList.add('blurred');
-    
-    // Show modal
     shifuModal.classList.remove('hidden');
     shifuModal.classList.add('active');
-    
-    // Trigger animations with slight delays for better effect
-    setTimeout(() => {
-        shifuCharacter.classList.add('active');
-    }, 100);
-    
-    setTimeout(() => {
-        speechBubble.classList.add('active');
-    }, 600); // After Shifu has started sliding in
+    setTimeout(() => shifuCharacter.classList.add('active'), 100);
+    setTimeout(() => speechBubble.classList.add('active'), 600);
 }
 
 /**
  * Hide the feedback modal and retry the current chapter
  */
 function retryCurrentChapter() {
-    // Remove active classes to reset animations
     shifuCharacter.classList.remove('active');
     speechBubble.classList.remove('active');
-    
-    // Hide modal
     shifuModal.classList.remove('active');
     shifuModal.classList.add('hidden');
-    
-    // Remove blur effect
     appContainer.classList.remove('blurred');
-    
-    // Retry the current chapter
     if (currentRetryNode) {
         loadNode(currentRetryNode);
     }
 }
 
 /**
- * Helper function to show modal with proper timing
- * @param {string} feedbackMessage - The feedback message to display
- * @param {string} retryNode - The node to retry from
- */
-function showModal(feedbackMessage, retryNode) {
-    showFeedbackModal(feedbackMessage, retryNode);
-}
-
-/**
- * Helper function to hide modal
- */
-function hideModal() {
-    retryCurrentChapter();
-}
-
-/**
  * Show the scroll modal with Kaizen information
  */
 function showScrollModal() {
-    // Apply blur effect to background
     appContainer.classList.add('blurred');
-    
-    // Show scroll modal
     scrollModal.classList.remove('hidden');
     scrollModal.classList.add('active');
 }
@@ -344,10 +272,7 @@ function showScrollModal() {
  * Hide the scroll modal
  */
 function hideScrollModal() {
-    // Remove blur effect
     appContainer.classList.remove('blurred');
-    
-    // Hide scroll modal
     scrollModal.classList.remove('active');
     scrollModal.classList.add('hidden');
 }
@@ -357,6 +282,7 @@ function hideScrollModal() {
  */
 function showDecisionContainer() {
     if (currentStoryNode && story[currentStoryNode].choices) {
+        mainVideo.classList.add('blurred'); // Add this line
         decisionContainer.classList.remove('hidden');
     }
 }
@@ -366,23 +292,17 @@ function showDecisionContainer() {
  * @param {string} screenId - The ID of the screen to show
  */
 function showScreen(screenId) {
-    // Hide all screens
     document.querySelectorAll('.screen').forEach(screen => {
         screen.classList.remove('active');
     });
-    
-    // Show the target screen
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) {
         targetScreen.classList.add('active');
     }
-    
-    // Handle progress bar visibility
     if (screenId === 'start-screen') {
         hideProgressBar();
     } else if (screenId === 'end-screen') {
-        // Ensure progress bar shows 100% on end screen
-        updateProgress('end_final');
+        updateProgress('outro'); // Ensure progress bar shows 100% on the final node
     }
 }
 
@@ -390,91 +310,27 @@ function showScreen(screenId) {
  * Initialize the game
  */
 function initGame() {
-    // Start button event listener
     startBtn.addEventListener('click', () => {
         showScreen('video-screen');
         showProgressBar();
         loadNode('start');
     });
-    
-    // Restart button event listener (for end screen)
+
     restartBtn.addEventListener('click', () => {
         showScreen('video-screen');
         showProgressBar();
         loadNode('start');
     });
-    
-    // Try again button event listener (for feedback modal)
+
     tryAgainBtn.addEventListener('click', retryCurrentChapter);
-    
-    // Info button event listener (for scroll modal)
     infoBtn.addEventListener('click', showScrollModal);
-    
-    // Close scroll button event listener
     closeScrollBtn.addEventListener('click', hideScrollModal);
-    
-    // Video ended event listener
     mainVideo.addEventListener('ended', showDecisionContainer);
-    
-    // Video error handling
     mainVideo.addEventListener('error', (e) => {
         console.error('Video error:', e);
-        // Show decision container even if video fails
         showDecisionContainer();
     });
-    
-    // Handle video loading
-    mainVideo.addEventListener('loadstart', () => {
-        console.log('Video loading started');
-    });
-    
-    mainVideo.addEventListener('canplay', () => {
-        console.log('Video can start playing');
-    });
-    
-    // Keyboard navigation support
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            // If decision container is visible, trigger first choice
-            if (!decisionContainer.classList.contains('hidden')) {
-                const firstChoice = choicesBox.querySelector('.choice-btn');
-                if (firstChoice) {
-                    firstChoice.click();
-                }
-            }
-            // If Shifu modal is visible, trigger try again
-            else if (shifuModal.classList.contains('active')) {
-                retryCurrentChapter();
-            }
-        }
-        // Escape key to close modals
-        else if (e.key === 'Escape') {
-            if (shifuModal.classList.contains('active')) {
-                retryCurrentChapter();
-            } else if (scrollModal.classList.contains('active')) {
-                hideScrollModal();
-            }
-        }
-        // 'I' key to open info modal
-        else if (e.key === 'i' || e.key === 'I') {
-            if (!scrollModal.classList.contains('active') && !shifuModal.classList.contains('active')) {
-                showScrollModal();
-            }
-        }
-    });
 }
-
 
 // Initialize the game when the page loads
 document.addEventListener('DOMContentLoaded', initGame);
-
-// Debug function to test story navigation (can be called from browser console)
-window.debugStory = function(nodeKey) {
-    console.log('Loading story node:', nodeKey);
-    loadNode(nodeKey);
-};
-
-// Export for potential module use
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { story, loadNode, initGame };
-}
