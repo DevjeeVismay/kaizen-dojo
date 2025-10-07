@@ -73,7 +73,8 @@ const story = {
         video: "videos/placeholder_08.mp4",
         scenario: "But the path is not without its challenges. The first weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
         choices: [
-            { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
+            // { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
+            { text: "It's easy to forget small details over time", leadsTo: "weakness2" },
             { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness1" },
             { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness1" }
         ]
@@ -177,8 +178,60 @@ function hideProgressBar() {
  * Main Game Engine - Loads and displays a story node
  * @param {string} nodeKey - The key of the story node to load
  */
+// function loadNode(nodeKey) {
+//     mainVideo.classList.remove('blurred'); // Add this line at the top
+//     const nodeData = story[nodeKey];
+//     if (!nodeData) {
+//         console.error(`Story node '${nodeKey}' not found!`);
+//         return;
+//     }
+//     currentStoryNode = nodeKey;
+//     updateProgress(nodeKey);
+
+//     // Hide decision container and modals initially
+//     decisionContainer.classList.add('hidden');
+//     shifuModal.classList.add('hidden');
+//     shifuModal.classList.remove('active');
+//     shifuCharacter.classList.remove('active');
+//     speechBubble.classList.remove('active');
+//     appContainer.classList.remove('blurred');
+//     choicesBox.innerHTML = '';
+//     scenarioText.textContent = nodeData.scenario;
+
+//     // Handle nodes with video vs. text-only nodes
+//     if (nodeData.video) {
+//         mainVideo.style.display = 'block'; // Ensure video player is visible
+//         mainVideo.src = nodeData.video;
+//         mainVideo.load();
+//         mainVideo.play().catch(error => {
+//             console.warn('Video autoplay failed:', error);
+//         });
+//     } else {
+//         mainVideo.style.display = 'none'; // Hide video player for text-only nodes
+//         showDecisionContainer(); // Immediately show the text and choices
+//     }
+    
+//     // Create choice buttons if choices exist
+//     if (nodeData.choices && nodeData.choices.length > 0) {
+//         nodeData.choices.forEach(choice => {
+//             const button = document.createElement('button');
+//             button.textContent = choice.text;
+//             button.className = 'choice-btn';
+//             button.addEventListener('click', () => {
+//                 if (choice.feedback) {
+//                     showFeedbackModal(choice.feedback, choice.leadsTo);
+//                 } else {
+//                     decisionContainer.classList.add('hidden');
+//                     loadNode(choice.leadsTo);
+//                 }
+//             });
+//             choicesBox.appendChild(button);
+//         });
+//     }
+// }
+
 function loadNode(nodeKey) {
-    mainVideo.classList.remove('blurred'); // Add this line at the top
+    mainVideo.classList.remove('blurred'); // Remove blur for the next video
     const nodeData = story[nodeKey];
     if (!nodeData) {
         console.error(`Story node '${nodeKey}' not found!`);
@@ -187,7 +240,6 @@ function loadNode(nodeKey) {
     currentStoryNode = nodeKey;
     updateProgress(nodeKey);
 
-    // Hide decision container and modals initially
     decisionContainer.classList.add('hidden');
     shifuModal.classList.add('hidden');
     shifuModal.classList.remove('active');
@@ -197,7 +249,7 @@ function loadNode(nodeKey) {
     choicesBox.innerHTML = '';
     scenarioText.textContent = nodeData.scenario;
 
-    // Handle nodes with video vs. text-only nodes
+    // --- THIS IS THE CORRECTED LOGIC ---
     if (nodeData.video) {
         mainVideo.style.display = 'block'; // Ensure video player is visible
         mainVideo.src = nodeData.video;
@@ -206,11 +258,12 @@ function loadNode(nodeKey) {
             console.warn('Video autoplay failed:', error);
         });
     } else {
-        mainVideo.style.display = 'none'; // Hide video player for text-only nodes
-        showDecisionContainer(); // Immediately show the text and choices
+        // For text-only nodes, DO NOT hide the video.
+        // Just show the decision container immediately.
+        // This will apply the blur to the last frame of the PREVIOUS video.
+        showDecisionContainer();
     }
-    
-    // Create choice buttons if choices exist
+
     if (nodeData.choices && nodeData.choices.length > 0) {
         nodeData.choices.forEach(choice => {
             const button = document.createElement('button');

@@ -552,7 +552,7 @@ p {
 
 /* Video Screen Specific Styles */
 #video-screen {
-    background: #000;
+    /* background: #000; */
     position: relative;
 }
 
