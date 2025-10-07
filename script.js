@@ -7,16 +7,25 @@
 // Story Data Structure - Defines the new narrative flow
 const story = {
     start: {
+        video: "videos/placeholder_00.mp4",
+        topicPrompt: {
+            title: "Be the Change", 
+            buttonText: "Enter Dojo",
+            nextNode: "start1"
+        }
+    },
+    start1: {
         video: "videos/placeholder_01.mp4",
         scenario: "To begin your training, a warm-up question! Who is Po's wise and patient Kung Fu master?",
         choices: [
-            { text: "Master Oogway", feedback: "Master Oogway was the founder of Kung Fu, but Master Shifu is Po's direct teacher!", leadsTo: "start" },
+            { text: "Master Oogway", feedback: "Master Oogway was the founder of Kung Fu, but Master Shifu is Po's direct teacher!", leadsTo: "start1" },
             { text: "Master Shifu", leadsTo: "journeyToJapan" },
             { text: "Master Tigress", feedback: "Tigress is a powerful warrior and friend, but not Po's master.", leadsTo: "start" }
         ]
     },
     journeyToJapan: {
         video: "videos/placeholder_02.mp4",
+        
         scenario: "The scroll speaks of 'Kaizen,' a powerful philosophy. To learn its secrets, Po must travel to its land of origin. Where did the way of Kaizen originate?",
         choices: [
             { text: "China", feedback: "While Kung Fu originates from China, the philosophy of Kaizen comes from Japan.", leadsTo: "journeyToJapan" },
@@ -129,7 +138,7 @@ const story = {
         video: "videos/placeholder_10.mp4",
         scenario: "Thank you for playing!",
         choices: [
-            { text: "Begin the Journey Anew", leadsTo: "start" }
+            { text: "Begin the Journey Anew" }
         ]
     }
 };
@@ -177,7 +186,7 @@ let currentStoryNode = null;
 let currentRetryNode = null; 
 
 // Progress Tracking - Updated main story nodes for the new flow
-const mainStoryNodes = ['start', 'journeyToJapan', 'trainingBegins', 'strength1', 'strength2', 'strength3', 'strength4', 'weakness1', 'weakness2', 'pre_outro', 'outro'];
+const mainStoryNodes = ['start', 'start1', 'journeyToJapan', 'trainingBegins', 'strength1', 'strength2', 'strength3', 'strength4', 'weakness1', 'weakness2', 'pre_outro', 'outro'];
 
 /**
  * Update the progress bar based on current story node
@@ -374,14 +383,13 @@ function showTopicPrompt() {
         topicTitle.textContent = topicData.title;
         topicDescription.textContent = topicData.description;
         
-        // Ensure video is visible and apply blur effect
-        mainVideo.style.display = 'block';
+        // Set custom button text if provided, otherwise use default "Take Quiz"
+        quizBtn.textContent = topicData.buttonText || "Take Quiz";
         
-        // Force a reflow to ensure the video is rendered before applying blur
+        mainVideo.style.display = 'block';
         mainVideo.offsetHeight;
         
-        // Apply blur effect
-        mainVideo.classList.add('blurred');
+        // mainVideo.classList.add('blurred'); <-- DELETE THIS LINE
         topicPromptContainer.classList.remove('hidden');
     } else {
         showDecisionContainer();
@@ -393,7 +401,7 @@ function showTopicPrompt() {
  */
 function showDecisionContainer() {
     if (currentStoryNode && story[currentStoryNode].choices) {
-        mainVideo.classList.add('blurred'); // Add this line
+        // mainVideo.classList.add('blurred'); <-- DELETE THIS LINE
         decisionContainer.classList.remove('hidden');
     }
 }
@@ -445,7 +453,13 @@ function initGame() {
     // Quiz button event handler
     quizBtn.addEventListener('click', () => {
         topicPromptContainer.classList.add('hidden');
-        showDecisionContainer();
+        
+        // Check if topic prompt has a nextNode to navigate to
+        if (currentStoryNode && story[currentStoryNode].topicPrompt && story[currentStoryNode].topicPrompt.nextNode) {
+            loadNode(story[currentStoryNode].topicPrompt.nextNode);
+        } else {
+            showDecisionContainer();
+        }
     });
 }
 
