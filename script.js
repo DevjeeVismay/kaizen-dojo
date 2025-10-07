@@ -10,6 +10,7 @@ const story = {
         video: "videos/placeholder_00.mp4",
         topicPrompt: {
             title: "Be the Change", 
+            description: "Do you have what it takes to be the Dragaon Warrior?",
             buttonText: "Enter Dojo",
             nextNode: "start1"
         }
