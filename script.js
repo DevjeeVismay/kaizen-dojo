@@ -26,6 +26,10 @@ const story = {
     },
     trainingBegins: {
         video: "videos/placeholder_03.mp4",
+        topicPrompt: {
+            title: "Training Begins: The Path of Observation",
+            description: "Learn how the journey of Kaizen starts with careful observation and understanding of current processes before making any changes."
+        },
         scenario: "Po meets the wise master Naruto, who explains that the path to Kaizen does not begin with a mighty clash, but with quiet observation. What is the first step in true Kaizen training?",
         choices: [
             { text: "Observing the process", leadsTo: "strength1" },
@@ -35,6 +39,10 @@ const story = {
     },
     strength1: {
         video: "videos/placeholder_04.mp4",
+        topicPrompt: {
+            title: "1st Strength: Kaizen is for everyone",
+            description: "Learn about how Kaizen empowers everyone to contribute to improvement, from the newest team member to the most experienced leader."
+        },
         scenario: "Naruto teaches Po the first strength of Kaizen: it is for everyone. Who is responsible for suggesting improvements in the Kaizen way?",
         choices: [
             { text: "Only the Masters", feedback: "No, the masters guide the process, but the wisdom of Kaizen is that even the newest student can see a better way.", leadsTo: "strength1" },
@@ -44,6 +52,10 @@ const story = {
     },
     strength2: {
         video: "videos/placeholder_05.mp4",
+        topicPrompt: {
+            title: "2nd Strength: Small steps big change",
+            description: "Discover how small, consistent improvements can lead to significant transformations over time in the Kaizen philosophy."
+        },
         scenario: "The second strength is revealed: Small steps lead to big changes. How does Kaizen achieve great results?",
         choices: [
             { text: "Through one single, heroic effort", feedback: "Heroic efforts are for legends! Kaizen is for the real world, where consistent, small actions create lasting change.", leadsTo: "strength2" },
@@ -53,6 +65,10 @@ const story = {
     },
     strength3: {
         video: "videos/placeholder_06.mp4",
+        topicPrompt: {
+            title: "3rd Strength: It is easy to do it right",
+            description: "Discover how Kaizen emphasizes simplicity and clarity in processes, making it easy for everyone to follow the correct procedures."
+        },
         scenario: "The third strength: It is easy to do it right. Kaizen focuses on simple, clear processes. Why is this important?",
         choices: [
             { text: "So it's easy for everyone to follow the correct way", leadsTo: "strength4" },
@@ -62,6 +78,10 @@ const story = {
     },
     strength4: {
         video: "videos/placeholder_07.mp4",
+        topicPrompt: {
+            title: "4th Strength: Everyone improves together",
+            description: "Explore how Kaizen creates a collaborative culture where team success leads to individual growth and collective achievement."
+        },
         scenario: "The final strength: Everyone improves together. As the team gets better, so does the individual. What is the outcome of this shared journey?",
         choices: [
             { text: "One warrior becomes the strongest", feedback: "When the team rises, everyone rises with it. The goal is collective strength, not individual glory.", leadsTo: "strength4" },
@@ -71,6 +91,10 @@ const story = {
     },
     weakness1: {
         video: "videos/placeholder_08.mp4",
+        topicPrompt: {
+            title: "1st Weakness: Requires great discipline",
+            description: "Understand the challenges of maintaining Kaizen practices, including the mental discipline needed to sustain continuous improvement over time."
+        },
         scenario: "But the path is not without its challenges. The first weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
         choices: [
             // { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
@@ -81,6 +105,10 @@ const story = {
     },
     weakness2: {
         video: "videos/placeholder_09.mp4",
+        topicPrompt: {
+            title: "2nd Weakness: Results can feel slow at first",
+            description: "Learn about the patience required in Kaizen implementation and why initial results may seem minimal compared to dramatic changes."
+        },
         scenario: "The second weakness: The results can feel slow at first. Why could this be a challenge for the Furious Five?",
         choices: [
             { text: "They are used to seeing immediate, powerful results", leadsTo: "pre_outro" },
@@ -117,6 +145,12 @@ const choicesBox = document.getElementById('choices-box');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 const endMessage = document.getElementById('end-message');
+
+// Topic Prompt Elements
+const topicPromptContainer = document.getElementById('topic-prompt-container');
+const topicTitle = document.getElementById('topic-title');
+const topicDescription = document.getElementById('topic-description');
+const quizBtn = document.getElementById('quiz-btn');
 
 // App Container for blur effect
 const appContainer = document.getElementById('app-container');
@@ -241,6 +275,7 @@ function loadNode(nodeKey) {
     updateProgress(nodeKey);
 
     decisionContainer.classList.add('hidden');
+    topicPromptContainer.classList.add('hidden');
     shifuModal.classList.add('hidden');
     shifuModal.classList.remove('active');
     shifuCharacter.classList.remove('active');
@@ -331,6 +366,29 @@ function hideScrollModal() {
 }
 
 /**
+ * Show the topic prompt when video ends (if node has topicPrompt)
+ */
+function showTopicPrompt() {
+    if (currentStoryNode && story[currentStoryNode].topicPrompt) {
+        const topicData = story[currentStoryNode].topicPrompt;
+        topicTitle.textContent = topicData.title;
+        topicDescription.textContent = topicData.description;
+        
+        // Ensure video is visible and apply blur effect
+        mainVideo.style.display = 'block';
+        
+        // Force a reflow to ensure the video is rendered before applying blur
+        mainVideo.offsetHeight;
+        
+        // Apply blur effect
+        mainVideo.classList.add('blurred');
+        topicPromptContainer.classList.remove('hidden');
+    } else {
+        showDecisionContainer();
+    }
+}
+
+/**
  * Show the decision container when video ends
  */
 function showDecisionContainer() {
@@ -378,9 +436,15 @@ function initGame() {
     tryAgainBtn.addEventListener('click', retryCurrentChapter);
     infoBtn.addEventListener('click', showScrollModal);
     closeScrollBtn.addEventListener('click', hideScrollModal);
-    mainVideo.addEventListener('ended', showDecisionContainer);
+    mainVideo.addEventListener('ended', showTopicPrompt);
     mainVideo.addEventListener('error', (e) => {
         console.error('Video error:', e);
+        showTopicPrompt();
+    });
+    
+    // Quiz button event handler
+    quizBtn.addEventListener('click', () => {
+        topicPromptContainer.classList.add('hidden');
         showDecisionContainer();
     });
 }
