@@ -26,7 +26,10 @@ const story = {
     },
     journeyToJapan: {
         video: "videos/placeholder_02.mp4",
-        
+        topicPrompt: {
+            title: "Kaizen's Origin",
+            description: "Learn where the way of Kaizen originates."
+        },
         scenario: "The scroll speaks of 'Kaizen,' a powerful philosophy. To learn its secrets, Po must travel to its land of origin. Where did the way of Kaizen originate?",
         choices: [
             { text: "China", feedback: "While Kung Fu originates from China, the philosophy of Kaizen comes from Japan.", leadsTo: "journeyToJapan" },
@@ -102,28 +105,28 @@ const story = {
     weakness1: {
         video: "videos/placeholder_08.mp4",
         topicPrompt: {
-            title: "1st Weakness: Requires great discipline",
-            description: "Understand the challenges of maintaining Kaizen practices, including the mental discipline needed to sustain continuous improvement over time."
+            title: "1st Weakness: Results can feel slow at first",
+            description: "Learn about the patience required in Kaizen implementation and why initial results may seem minimal compared to dramatic changes."
         },
-        scenario: "But the path is not without its challenges. The first weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
+        scenario: "But the path is not without its challenges. The first weakness: The results can feel slow at first. Why could this be a challenge for the Furious Five?",
         choices: [
-            // { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
-            { text: "It's easy to forget small details over time", leadsTo: "weakness2" },
-            { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness1" },
-            { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness1" }
+            { text: "They are used to seeing immediate, powerful results", leadsTo: "pre_outro" },
+            { text: "The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness2" },
+            { text: "It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness2" }
         ]
     },
     weakness2: {
         video: "videos/placeholder_09.mp4",
         topicPrompt: {
-            title: "2nd Weakness: Results can feel slow at first",
-            description: "Learn about the patience required in Kaizen implementation and why initial results may seem minimal compared to dramatic changes."
+            title: "2nd Weakness: Requires great discipline",
+            description: "Understand the challenges of maintaining Kaizen practices, including the mental discipline needed to sustain continuous improvement over time."
         },
-        scenario: "The second weakness: The results can feel slow at first. Why could this be a challenge for the Furious Five?",
+        scenario: "The second weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
         choices: [
-            { text: "They are used to seeing immediate, powerful results", leadsTo: "pre_outro" },
-            { text: "The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness2" },
-            { text: "It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness2" }
+            // { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
+            { text: "It's easy to forget small details over time", leadsTo: "weakness2" },
+            { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness1" },
+            { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness1" }
         ]
     },
     pre_outro: {
