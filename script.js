@@ -110,9 +110,9 @@ const story = {
         },
         scenario: "But the path is not without its challenges. The first weakness: The results can feel slow at first. Why could this be a challenge for the Furious Five?",
         choices: [
-            { text: "They are used to seeing immediate, powerful results", leadsTo: "pre_outro" },
-            { text: "The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness2" },
-            { text: "It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness2" }
+            { text: "They are used to seeing immediate, powerful results", leadsTo: "weakness2" },
+            { text: "The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness1" },
+            { text: "It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness1" }
         ]
     },
     weakness2: {
@@ -124,9 +124,9 @@ const story = {
         scenario: "The second weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
         choices: [
             // { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
-            { text: "It's easy to forget small details over time", leadsTo: "weakness2" },
-            { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness1" },
-            { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness1" }
+            { text: "It's easy to forget small details over time", leadsTo: "pre_outro" },
+            { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness2" },
+            { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness2" }
         ]
     },
     pre_outro: {
