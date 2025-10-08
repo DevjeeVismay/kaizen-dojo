@@ -19,9 +19,9 @@ const story = {
         video: "videos/placeholder_01.mp4",
         scenario: "To begin your training, a warm-up question! Who is Po's wise and patient Kung Fu master?",
         choices: [
-            { text: "Master Oogway", feedback: "Master Oogway was the founder of Kung Fu, but Master Shifu is Po's direct teacher!", leadsTo: "start1" },
-            { text: "Master Shifu", leadsTo: "journeyToJapan" },
-            { text: "Master Tigress", feedback: "Tigress is a powerful warrior and friend, but not Po's master.", leadsTo: "start" }
+            { text: "A. Master Oogway", feedback: "Master Oogway was the founder of Kung Fu, but Master Shifu is Po's direct teacher!", leadsTo: "start1" },
+            { text: "B. Master Shifu", leadsTo: "journeyToJapan" },
+            { text: "C. Master Tigress", feedback: "Tigress is a powerful warrior and friend, but not Po's master.", leadsTo: "start" }
         ]
     },
     journeyToJapan: {
@@ -32,9 +32,9 @@ const story = {
         },
         scenario: "The scroll speaks of 'Kaizen,' a powerful philosophy. To learn its secrets, Po must travel to its land of origin. Where did the way of Kaizen originate?",
         choices: [
-            { text: "China", feedback: "While Kung Fu originates from China, the philosophy of Kaizen comes from Japan.", leadsTo: "journeyToJapan" },
-            { text: "Korea", feedback: "A land of great traditions, but Kaizen's roots are in Japan.", leadsTo: "journeyToJapan" },
-            { text: "Japan", leadsTo: "trainingBegins" }
+            { text: "A. China", feedback: "While Kung Fu originates from China, the philosophy of Kaizen comes from Japan.", leadsTo: "journeyToJapan" },
+            { text: "B. Korea", feedback: "A land of great traditions, but Kaizen's roots are in Japan.", leadsTo: "journeyToJapan" },
+            { text: "C. Japan", leadsTo: "trainingBegins" }
         ]
     },
     trainingBegins: {
@@ -45,9 +45,9 @@ const story = {
         },
         scenario: "Po meets the wise master Naruto, who explains that the path to Kaizen does not begin with a mighty clash, but with quiet observation. What is the first step in true Kaizen training?",
         choices: [
-            { text: "Observing the process", leadsTo: "strength1" },
-            { text: "Lifting heavy rocks", feedback: "Strength is important, but Kaizen begins with the mind, not the muscles. One must first see the challenge clearly.", leadsTo: "trainingBegins" },
-            { text: "Sparring with a master", feedback: "Combat reveals flaws, but true improvement starts by observing the everyday process, not the grand battle.", leadsTo: "trainingBegins" }
+            { text: "A. Observing the process", leadsTo: "strength1" },
+            { text: "B. Lifting heavy rocks", feedback: "Strength is important, but Kaizen begins with the mind, not the muscles. One must first see the challenge clearly.", leadsTo: "trainingBegins" },
+            { text: "C. Sparring with a master", feedback: "Combat reveals flaws, but true improvement starts by observing the everyday process, not the grand battle.", leadsTo: "trainingBegins" }
         ]
     },
     strength1: {
@@ -58,9 +58,9 @@ const story = {
         },
         scenario: "Naruto teaches Po the first strength of Kaizen: it is for everyone. Who is responsible for suggesting improvements in the Kaizen way?",
         choices: [
-            { text: "Only the Masters", feedback: "No, the masters guide the process, but the wisdom of Kaizen is that even the newest student can see a better way.", leadsTo: "strength1" },
-            { text: "Only the Dragon Warrior", feedback: "The Dragon Warrior leads by example, but every single person's insight is valuable in the path of continuous improvement.", leadsTo: "strength1" },
-            { text: "Everyone, from the noodle maker to the master", leadsTo: "strength2" }
+            { text: "A. Only the Masters", feedback: "No, the masters guide the process, but the wisdom of Kaizen is that even the newest student can see a better way.", leadsTo: "strength1" },
+            { text: "B. Only the Dragon Warrior", feedback: "The Dragon Warrior leads by example, but every single person's insight is valuable in the path of continuous improvement.", leadsTo: "strength1" },
+            { text: "C. Everyone, from the noodle maker to the master", leadsTo: "strength2" }
         ]
     },
     strength2: {
@@ -71,9 +71,9 @@ const story = {
         },
         scenario: "The second strength is revealed: Small steps lead to big changes. How does Kaizen achieve great results?",
         choices: [
-            { text: "Through one single, heroic effort", feedback: "Heroic efforts are for legends! Kaizen is for the real world, where consistent, small actions create lasting change.", leadsTo: "strength2" },
-            { text: "By making small, consistent improvements", leadsTo: "strength3" },
-            { text: "By waiting for the perfect moment", feedback: "The perfect moment is now! Kaizen teaches that we should not wait, but take a small step forward today.", leadsTo: "strength2" }
+            { text: "A. Through one single, heroic effort", feedback: "Heroic efforts are for legends! Kaizen is for the real world, where consistent, small actions create lasting change.", leadsTo: "strength2" },
+            { text: "B. By making small, consistent improvements", leadsTo: "strength3" },
+            { text: "C. By waiting for the perfect moment", feedback: "The perfect moment is now! Kaizen teaches that we should not wait, but take a small step forward today.", leadsTo: "strength2" }
         ]
     },
     strength3: {
@@ -84,9 +84,9 @@ const story = {
         },
         scenario: "The third strength: It is easy to do it right. Kaizen focuses on simple, clear processes. Why is this important?",
         choices: [
-            { text: "So it's easy for everyone to follow the correct way", leadsTo: "strength4" },
-            { text: "To make the process more mysterious", feedback: "Clarity, not mystery, is the goal! A simple process is a strong process that everyone can master.", leadsTo: "strength3" },
-            { text: "So only the smartest warrior can do it", feedback: "Kaizen is not for the few, but for the many. A simple process ensures everyone can contribute to success.", leadsTo: "strength3" }
+            { text: "A. So it's easy for everyone to follow the correct way", leadsTo: "strength4" },
+            { text: "B. To make the process more mysterious", feedback: "Clarity, not mystery, is the goal! A simple process is a strong process that everyone can master.", leadsTo: "strength3" },
+            { text: "C. So only the smartest warrior can do it", feedback: "Kaizen is not for the few, but for the many. A simple process ensures everyone can contribute to success.", leadsTo: "strength3" }
         ]
     },
     strength4: {
@@ -97,9 +97,9 @@ const story = {
         },
         scenario: "The final strength: Everyone improves together. As the team gets better, so does the individual. What is the outcome of this shared journey?",
         choices: [
-            { text: "One warrior becomes the strongest", feedback: "When the team rises, everyone rises with it. The goal is collective strength, not individual glory.", leadsTo: "strength4" },
-            { text: "It creates a culture of teamwork and shared success", leadsTo: "weakness1" },
-            { text: "It causes jealousy between warriors", feedback: "In the Kaizen way, the success of a teammate is your success too. It builds unity, not rivalry.", leadsTo: "strength4" }
+            { text: "A. One warrior becomes the strongest", feedback: "When the team rises, everyone rises with it. The goal is collective strength, not individual glory.", leadsTo: "strength4" },
+            { text: "B. It creates a culture of teamwork and shared success", leadsTo: "weakness1" },
+            { text: "C. It causes jealousy between warriors", feedback: "In the Kaizen way, the success of a teammate is your success too. It builds unity, not rivalry.", leadsTo: "strength4" }
         ]
     },
     weakness1: {
@@ -110,9 +110,9 @@ const story = {
         },
         scenario: "But the path is not without its challenges. The first weakness: The results can feel slow at first. Why could this be a challenge for the Furious Five?",
         choices: [
-            { text: "They are used to seeing immediate, powerful results", leadsTo: "weakness2" },
-            { text: "The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness1" },
-            { text: "It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness1" }
+            { text: "A. They are used to seeing immediate, powerful results", leadsTo: "weakness2" },
+            { text: "B. The changes are too big and scary", feedback: "Kaizen is the opposite! It's all about small, manageable changes. The challenge is having patience for them to add up.", leadsTo: "weakness1" },
+            { text: "C. It requires learning a new language", feedback: "The language of Kaizen is action, which everyone understands. The challenge is trusting that small actions will lead to big results over time.", leadsTo: "weakness1" }
         ]
     },
     weakness2: {
@@ -124,9 +124,9 @@ const story = {
         scenario: "The second weakness of Kaizen is that it requires great discipline. Why might this be difficult?",
         choices: [
             // { text: "It's easy to forget small details over time", feedback: "Exactly! Without discipline, old habits return. Kaizen requires constant focus to maintain the improvements.", leadsTo: "weakness2" },
-            { text: "It's easy to forget small details over time", leadsTo: "pre_outro" },
-            { text: "The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness2" },
-            { text: "It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness2" }
+            { text: "A. It's easy to forget small details over time", leadsTo: "pre_outro" },
+            { text: "B. The training is too physically hard", feedback: "The challenge of Kaizen is mental, not physical. It's the discipline of the mind to stay focused on continuous improvement.", leadsTo: "weakness2" },
+            { text: "C. It requires expensive new equipment", feedback: "Kaizen focuses on improving the process with what you have. The investment is in effort and discipline, not money.", leadsTo: "weakness2" }
         ]
     },
     pre_outro: {
