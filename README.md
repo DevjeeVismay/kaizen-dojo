@@ -11,12 +11,16 @@ Panda/
 ├── script.js           # Game logic and story data
 ├── README.md           # This file
 ├── videos/             # Video files directory (create this)
-│   ├── 01_intro.mp4
-│   ├── 02_correct_choice.mp4
-│   ├── 03_set_in_order.mp4
-│   ├── 04_shine.mp4
-│   ├── 05_standardize.mp4
-│   └── 99_success.mp4
+│   ├── placeholder_1.mp4
+│   ├── placeholder_2.mp4
+│   ├── placeholder_3.mp4
+│   ├── placeholder_4.mp4
+│   ├── placeholder_5.mp4
+│   ├── placeholder_6.mp4
+│   ├── placeholder_7.mp4
+│   ├── placeholder_8.mp4
+│   ├── placeholder_9.mp4
+│   └── placeholder_10.mp4
 └── images/             # Image files directory (create this)
     ├── shifu.png       # Master Shifu image for feedback modal
     ├── po_face.png     # Po's face for progress bar icon
