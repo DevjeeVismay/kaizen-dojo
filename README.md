@@ -10,6 +10,7 @@ Panda/
 ├── style.css           # Styling and responsive design
 ├── script.js           # Game logic and story data
 ├── README.md           # This file
+├── ANSWERS.md           # This file
 ├── videos/             # Video files directory (create this)
 │   ├── placeholder_1.mp4
 │   ├── placeholder_2.mp4
