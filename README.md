@@ -53,6 +53,9 @@ The game uses a data-driven approach where the story is defined in the `story` o
   - `feedback`: Master Shifu's guidance (for incorrect choices)
   - `leadsTo`: Retry node (for incorrect choices)
 
+### Bloopers:
+Link: [Bloopers](https://drive.google.com/file/d/1ooosX6X6lOCZVZu78b-0Z7zx8lcLP7FN/view?usp=drive_link)
+
 ## License
 
 This project is created for educational purposes.
