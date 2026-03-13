@@ -1,5 +1,7 @@
 # The Scroll of Kaizen - Interactive Learning Game
 
+**Play the Game Online:**  [Launch the Game](https://journeyofkaizen.netlify.app/) 🎲
+
 A single-page interactive game website that teaches the Kaizen change model using a Kung Fu Panda and Naruto theme. Players progress through a story by watching videos and making decisions that affect the narrative flow.
 
 ## File Structure
